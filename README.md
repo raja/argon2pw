@@ -1,8 +1,14 @@
 # argon2pw
 [![GoDoc](https://godoc.org/github.com/raja/argon2pw?status.svg)](https://godoc.org/github.com/raja/argon2pw)
 
-Argon2 password hashing library with constant time hash comparison
+Argon2 password hashing package with constant time hash comparison
 
+**Preface:**
+Argon2 was selected as the winner of the [Password Hashing Competition](https://password-hashing.net/) is ideal for deriving cryptographic keys from passwords.
+
+This package utilizes the Argon2i hashing algorithm is the side-channel resistant version of Argon2. It uses data-independent memory access, which is preferred for password
+hashing and password-based key derivation. Argon2i requires more passes over
+memory than Argon2id to protect from trade-off attacks.
 
 **Usage:**
 ```go
