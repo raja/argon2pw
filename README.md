@@ -10,6 +10,8 @@ This package utilizes the Argon2i hashing algorithm that is the side-channel res
 hashing and password-based key derivation. Argon2i requires more passes over
 memory than Argon2id to protect from trade-off attacks.
 
+Additionally, argon2pw includes a function for password comparison in constant time to prevent [timing attack](https://en.wikipedia.org/wiki/Timing_attack) vectors.
+
 **Usage:**
 ```go
 package main
