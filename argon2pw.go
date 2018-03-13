@@ -1,3 +1,27 @@
+// Package argon2pw provides ability to generated salted Argon2 hashes ideal for secure password storage.
+// Additionally, argon2pw includes a function for constant time password comparison to prevent constant timing attacks.
+//
+// Example:
+// package main
+// import "github.com/raja/argon2pw"
+//
+// func main() {
+// 	// Generate a hashed password
+// 	testPassword := `testPassword$x1w432b7^`
+// 	hashedPassword, err := argon2pw.GenerateSaltedHash(testPassword)
+// 	if err != nil {
+// 		log.Panicf("Hash generated returned error: %v", err)
+// 	}
+
+// 	// Test correct password in constant time
+// 	valid, err := argon2pw.CompareHashWithPassword(hashedPassword, testPassword)
+// 	log.Printf("The password validity is %t against the hash", valid)
+
+// 	// Test incorrect password in constant time
+// 	valid, err = argon2pw.CompareHashWithPassword(hashedPassword, "badPass")
+// 	log.Printf("The password validity is %t against the hash", valid)
+
+// }
 package argon2pw
 
 import (
