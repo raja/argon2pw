@@ -1,5 +1,6 @@
 # argon2pw
 [![GoDoc](https://godoc.org/github.com/raja/argon2pw?status.svg)](https://godoc.org/github.com/raja/argon2pw)
+[![Build Status](https://travis-ci.org/raja/argon2pw.svg?branch=master)](https://travis-ci.org/raja/argon2pw)
 
 Argon2 password hashing package with constant time hash comparison
 
