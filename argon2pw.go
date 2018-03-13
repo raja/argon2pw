@@ -12,15 +12,14 @@
 // 	if err != nil {
 // 		log.Panicf("Hash generated returned error: %v", err)
 // 	}
-
+//
 // 	// Test correct password in constant time
 // 	valid, err := argon2pw.CompareHashWithPassword(hashedPassword, testPassword)
 // 	log.Printf("The password validity is %t against the hash", valid)
-
+//
 // 	// Test incorrect password in constant time
 // 	valid, err = argon2pw.CompareHashWithPassword(hashedPassword, "badPass")
 // 	log.Printf("The password validity is %t against the hash", valid)
-
 // }
 package argon2pw
 
