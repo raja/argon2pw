@@ -28,7 +28,7 @@ func GenerateSaltedHash(password string) (string, error) {
 	if len(password) == 0 {
 		return "", errors.New("Password length cannot be 0")
 	}
-	salt, _ := generateSalt()
+	salt, _ := generateSalt(saltLen)
 	unencodedPassword := argon2.IDKey([]byte(password), []byte(salt), argon2Time, argon2Memory, argon2Threads, argon2KeyLen)
 	encodedPassword := base64.StdEncoding.EncodeToString(unencodedPassword)
 	hash := fmt.Sprintf("%s$%d$%d$%d$%d$%s$%s",
@@ -71,11 +71,10 @@ func CompareHashWithPassword(hash, password string) (bool, error) {
 	return true, nil
 }
 
-func generateSalt() (s string, err error) {
-	unencodedSalt := make([]byte, saltLen)
-	_, err = rand.Read(unencodedSalt)
-	if err != nil {
-		return s, err
+func generateSalt(len int) (string, error) {
+	unencodedSalt := make([]byte, len)
+	if _, err := rand.Read(unencodedSalt); err != nil {
+		return "", err
 	}
 	return base64.StdEncoding.EncodeToString(unencodedSalt), nil
 }
